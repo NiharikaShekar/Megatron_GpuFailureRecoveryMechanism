@@ -1,0 +1,209 @@
+W0430 05:30:03.398000 3307 torch/distributed/run.py:793] 
+W0430 05:30:03.398000 3307 torch/distributed/run.py:793] *****************************************
+W0430 05:30:03.398000 3307 torch/distributed/run.py:793] Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+W0430 05:30:03.398000 3307 torch/distributed/run.py:793] *****************************************
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/transformer_engine/pytorch/attention.py", line 104, in <module>
+    _flash_attn_v3_version = PkgVersion(get_pkg_version("flashattn-hopper"))
+  File "/usr/lib/python3.10/importlib/metadata/__init__.py", line 996, in version
+    return distribution(distribution_name).version
+  File "/usr/lib/python3.10/importlib/metadata/__init__.py", line 969, in distribution
+    return Distribution.from_name(distribution_name)
+  File "/usr/lib/python3.10/importlib/metadata/__init__.py", line 548, in from_name
+    raise PackageNotFoundError(name)
+importlib.metadata.PackageNotFoundError: No package metadata was found for flashattn-hopper
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/workspace/megatron/pretrain_gpt.py", line 10, in <module>
+    from megatron.core import parallel_state
+  File "/workspace/megatron/megatron/core/__init__.py", line 3, in <module>
+    import megatron.core.tensor_parallel
+  File "/workspace/megatron/megatron/core/tensor_parallel/__init__.py", line 4, in <module>
+    from .layers import (
+  File "/workspace/megatron/megatron/core/tensor_parallel/layers.py", line 30, in <module>
+    from ..transformer.utils import make_sharded_tensors_for_checkpoint
+  File "/workspace/megatron/megatron/core/transformer/__init__.py", line 6, in <module>
+    from .transformer_layer import TransformerLayer, TransformerLayerSubmodules
+  File "/workspace/megatron/megatron/core/transformer/transformer_layer.py", line 18, in <module>
+    from megatron.core.transformer.cuda_graphs import CudaGraphManager
+  File "/workspace/megatron/megatron/core/transformer/cuda_graphs.py", line 15, in <module>
+    from megatron.core.tensor_parallel.random import (
+  File "/workspace/megatron/megatron/core/tensor_parallel/random.py", line 26, in <module>
+    import transformer_engine  # pylint: disable=unused-import
+  File "/usr/local/lib/python3.10/dist-packages/transformer_engine/__init__.py", line 13, in <module>
+    from . import pytorch
+  File "/usr/local/lib/python3.10/dist-packages/transformer_engine/pytorch/__init__.py", line 73, in <module>
+    from transformer_engine.pytorch.attention import DotProductAttention
+  File "/usr/local/lib/python3.10/dist-packages/transformer_engine/pytorch/attention.py", line 107, in <module>
+    if get_device_compute_capability() == (9, 0) and _NVTE_FLASH_ATTN:
+  File "/usr/local/lib/python3.10/dist-packages/transformer_engine/pytorch/utils.py", line 43, in get_device_compute_capability
+    props = torch.cuda.get_device_properties(torch.cuda.current_device())
+  File "/usr/local/lib/python3.10/dist-packages/torch/cuda/__init__.py", line 940, in current_device
+    _lazy_init()
+  File "/usr/local/lib/python3.10/dist-packages/torch/cuda/__init__.py", line 319, in _lazy_init
+    torch._C._cuda_init()
+RuntimeError: No CUDA GPUs are available
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/transformer_engine/pytorch/attention.py", line 104, in <module>
+    _flash_attn_v3_version = PkgVersion(get_pkg_version("flashattn-hopper"))
+  File "/usr/lib/python3.10/importlib/metadata/__init__.py", line 996, in version
+    return distribution(distribution_name).version
+  File "/usr/lib/python3.10/importlib/metadata/__init__.py", line 969, in distribution
+    return Distribution.from_name(distribution_name)
+  File "/usr/lib/python3.10/importlib/metadata/__init__.py", line 548, in from_name
+    raise PackageNotFoundError(name)
+importlib.metadata.PackageNotFoundError: No package metadata was found for flashattn-hopper
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/workspace/megatron/pretrain_gpt.py", line 10, in <module>
+    from megatron.core import parallel_state
+  File "/workspace/megatron/megatron/core/__init__.py", line 3, in <module>
+    import megatron.core.tensor_parallel
+  File "/workspace/megatron/megatron/core/tensor_parallel/__init__.py", line 4, in <module>
+    from .layers import (
+  File "/workspace/megatron/megatron/core/tensor_parallel/layers.py", line 30, in <module>
+    from ..transformer.utils import make_sharded_tensors_for_checkpoint
+  File "/workspace/megatron/megatron/core/transformer/__init__.py", line 6, in <module>
+    from .transformer_layer import TransformerLayer, TransformerLayerSubmodules
+  File "/workspace/megatron/megatron/core/transformer/transformer_layer.py", line 18, in <module>
+    from megatron.core.transformer.cuda_graphs import CudaGraphManager
+  File "/workspace/megatron/megatron/core/transformer/cuda_graphs.py", line 15, in <module>
+    from megatron.core.tensor_parallel.random import (
+  File "/workspace/megatron/megatron/core/tensor_parallel/random.py", line 26, in <module>
+    import transformer_engine  # pylint: disable=unused-import
+  File "/usr/local/lib/python3.10/dist-packages/transformer_engine/__init__.py", line 13, in <module>
+    from . import pytorch
+  File "/usr/local/lib/python3.10/dist-packages/transformer_engine/pytorch/__init__.py", line 73, in <module>
+    from transformer_engine.pytorch.attention import DotProductAttention
+  File "/usr/local/lib/python3.10/dist-packages/transformer_engine/pytorch/attention.py", line 107, in <module>
+    if get_device_compute_capability() == (9, 0) and _NVTE_FLASH_ATTN:
+  File "/usr/local/lib/python3.10/dist-packages/transformer_engine/pytorch/utils.py", line 43, in get_device_compute_capability
+    props = torch.cuda.get_device_properties(torch.cuda.current_device())
+  File "/usr/local/lib/python3.10/dist-packages/torch/cuda/__init__.py", line 940, in current_device
+    _lazy_init()
+  File "/usr/local/lib/python3.10/dist-packages/torch/cuda/__init__.py", line 319, in _lazy_init
+    torch._C._cuda_init()
+RuntimeError: No CUDA GPUs are available
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/transformer_engine/pytorch/attention.py", line 104, in <module>
+    _flash_attn_v3_version = PkgVersion(get_pkg_version("flashattn-hopper"))
+  File "/usr/lib/python3.10/importlib/metadata/__init__.py", line 996, in version
+    return distribution(distribution_name).version
+  File "/usr/lib/python3.10/importlib/metadata/__init__.py", line 969, in distribution
+    return Distribution.from_name(distribution_name)
+  File "/usr/lib/python3.10/importlib/metadata/__init__.py", line 548, in from_name
+    raise PackageNotFoundError(name)
+importlib.metadata.PackageNotFoundError: No package metadata was found for flashattn-hopper
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/workspace/megatron/pretrain_gpt.py", line 10, in <module>
+    from megatron.core import parallel_state
+  File "/workspace/megatron/megatron/core/__init__.py", line 3, in <module>
+    import megatron.core.tensor_parallel
+  File "/workspace/megatron/megatron/core/tensor_parallel/__init__.py", line 4, in <module>
+    from .layers import (
+  File "/workspace/megatron/megatron/core/tensor_parallel/layers.py", line 30, in <module>
+    from ..transformer.utils import make_sharded_tensors_for_checkpoint
+  File "/workspace/megatron/megatron/core/transformer/__init__.py", line 6, in <module>
+    from .transformer_layer import TransformerLayer, TransformerLayerSubmodules
+  File "/workspace/megatron/megatron/core/transformer/transformer_layer.py", line 18, in <module>
+    from megatron.core.transformer.cuda_graphs import CudaGraphManager
+  File "/workspace/megatron/megatron/core/transformer/cuda_graphs.py", line 15, in <module>
+    from megatron.core.tensor_parallel.random import (
+  File "/workspace/megatron/megatron/core/tensor_parallel/random.py", line 26, in <module>
+    import transformer_engine  # pylint: disable=unused-import
+  File "/usr/local/lib/python3.10/dist-packages/transformer_engine/__init__.py", line 13, in <module>
+    from . import pytorch
+  File "/usr/local/lib/python3.10/dist-packages/transformer_engine/pytorch/__init__.py", line 73, in <module>
+    from transformer_engine.pytorch.attention import DotProductAttention
+  File "/usr/local/lib/python3.10/dist-packages/transformer_engine/pytorch/attention.py", line 107, in <module>
+    if get_device_compute_capability() == (9, 0) and _NVTE_FLASH_ATTN:
+  File "/usr/local/lib/python3.10/dist-packages/transformer_engine/pytorch/utils.py", line 43, in get_device_compute_capability
+    props = torch.cuda.get_device_properties(torch.cuda.current_device())
+  File "/usr/local/lib/python3.10/dist-packages/torch/cuda/__init__.py", line 940, in current_device
+    _lazy_init()
+  File "/usr/local/lib/python3.10/dist-packages/torch/cuda/__init__.py", line 319, in _lazy_init
+    torch._C._cuda_init()
+RuntimeError: No CUDA GPUs are available
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/transformer_engine/pytorch/attention.py", line 104, in <module>
+    _flash_attn_v3_version = PkgVersion(get_pkg_version("flashattn-hopper"))
+  File "/usr/lib/python3.10/importlib/metadata/__init__.py", line 996, in version
+    return distribution(distribution_name).version
+  File "/usr/lib/python3.10/importlib/metadata/__init__.py", line 969, in distribution
+    return Distribution.from_name(distribution_name)
+  File "/usr/lib/python3.10/importlib/metadata/__init__.py", line 548, in from_name
+    raise PackageNotFoundError(name)
+importlib.metadata.PackageNotFoundError: No package metadata was found for flashattn-hopper
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/workspace/megatron/pretrain_gpt.py", line 10, in <module>
+    from megatron.core import parallel_state
+  File "/workspace/megatron/megatron/core/__init__.py", line 3, in <module>
+    import megatron.core.tensor_parallel
+  File "/workspace/megatron/megatron/core/tensor_parallel/__init__.py", line 4, in <module>
+    from .layers import (
+  File "/workspace/megatron/megatron/core/tensor_parallel/layers.py", line 30, in <module>
+    from ..transformer.utils import make_sharded_tensors_for_checkpoint
+  File "/workspace/megatron/megatron/core/transformer/__init__.py", line 6, in <module>
+    from .transformer_layer import TransformerLayer, TransformerLayerSubmodules
+  File "/workspace/megatron/megatron/core/transformer/transformer_layer.py", line 18, in <module>
+    from megatron.core.transformer.cuda_graphs import CudaGraphManager
+  File "/workspace/megatron/megatron/core/transformer/cuda_graphs.py", line 15, in <module>
+    from megatron.core.tensor_parallel.random import (
+  File "/workspace/megatron/megatron/core/tensor_parallel/random.py", line 26, in <module>
+    import transformer_engine  # pylint: disable=unused-import
+  File "/usr/local/lib/python3.10/dist-packages/transformer_engine/__init__.py", line 13, in <module>
+    from . import pytorch
+  File "/usr/local/lib/python3.10/dist-packages/transformer_engine/pytorch/__init__.py", line 73, in <module>
+    from transformer_engine.pytorch.attention import DotProductAttention
+  File "/usr/local/lib/python3.10/dist-packages/transformer_engine/pytorch/attention.py", line 107, in <module>
+    if get_device_compute_capability() == (9, 0) and _NVTE_FLASH_ATTN:
+  File "/usr/local/lib/python3.10/dist-packages/transformer_engine/pytorch/utils.py", line 43, in get_device_compute_capability
+    props = torch.cuda.get_device_properties(torch.cuda.current_device())
+  File "/usr/local/lib/python3.10/dist-packages/torch/cuda/__init__.py", line 940, in current_device
+    _lazy_init()
+  File "/usr/local/lib/python3.10/dist-packages/torch/cuda/__init__.py", line 319, in _lazy_init
+    torch._C._cuda_init()
+RuntimeError: No CUDA GPUs are available
+W0430 05:30:08.517000 3307 torch/distributed/elastic/multiprocessing/api.py:890] Sending process 3390 closing signal SIGTERM
+W0430 05:30:08.518000 3307 torch/distributed/elastic/multiprocessing/api.py:890] Sending process 3391 closing signal SIGTERM
+W0430 05:30:08.518000 3307 torch/distributed/elastic/multiprocessing/api.py:890] Sending process 3392 closing signal SIGTERM
+E0430 05:30:08.582000 3307 torch/distributed/elastic/multiprocessing/api.py:862] failed (exitcode: 1) local_rank: 0 (pid: 3389) of binary: /usr/bin/python
+Traceback (most recent call last):
+  File "/usr/local/bin/torchrun", line 33, in <module>
+    sys.exit(load_entry_point('torch==2.5.0a0+e000cf0ad9.nv24.10', 'console_scripts', 'torchrun')())
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 355, in wrapper
+    return f(*args, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/run.py", line 919, in main
+    run(args)
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/run.py", line 910, in run
+    elastic_launch(
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/launcher/api.py", line 138, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/launcher/api.py", line 269, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+pretrain_gpt.py FAILED
+------------------------------------------------------------
+Failures:
+  <NO_OTHER_FAILURES>
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2025-04-30_05:30:08
+  host      : 9e30f28352dd
+  rank      : 0 (local_rank: 0)
+  exitcode  : 1 (pid: 3389)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================
