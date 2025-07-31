@@ -192,7 +192,7 @@ Megatron-LM/
 
 ## Research Paper
 
-This implementation is based on the research paper: **"Proactive Fault Tolerance System for Megatron-LM Training"**. 👉 Please refer to the /research_paper/ folder for the full PDF of the paper and detailed methodology.
+This implementation is based on the research paper: **"Proactive Fault Tolerance System for Megatron-LM Training"**. 👉 Please refer to the Proactive Fault Tolerance System for Megatron LMTraining.pdf file in this repository for the full PDF of the paper and detailed methodology.
 
 
 ---
